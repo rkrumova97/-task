@@ -1,4 +1,6 @@
-<table class="table table-striped" aria-describedby="page-heading">
+<h1 class="text-center m-3">List of the accounts</h1>
+<button class="btn m-2 alert-info float-right">Create new account</button>
+<table class="table table-striped table-hover" aria-describedby="page-heading">
   <thead>
   <tr>
     <th scope="col"><span>ID</span></th>
@@ -6,6 +8,7 @@
     <th scope="col"><span>Last name</span></th>
     <th scope="col"><span>Birthday</span></th>
     <th scope="col"><span>Email</span></th>
+    <th scope="col"><span>Actions</span></th>
   </tr>
   </thead>
   <tr *ngFor="let account of accounts">
@@ -17,7 +20,7 @@
     <td class="text-right">
       <div class="btn-group">
         <button type="submit"
-                [routerLink]="['/benefit', account.id, 'edit']"
+                [routerLink]="['/update', account.id, 'edit']"
                 class="btn btn-primary btn-sm">
           <fa-icon [icon]="'pencil-alt'"></fa-icon>
           <span class="d-none d-md-inline">Edit</span>

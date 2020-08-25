@@ -1,7 +1,6 @@
 import {HttpClient, HttpResponse} from "@angular/common/http";
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
-import {map} from "rxjs/operators";
 import {IAccount} from "../model/account.model";
 
 type EntityResponseType = HttpResponse<IAccount[]>;
