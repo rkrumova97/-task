@@ -1,0 +1,33 @@
+<table class="table table-striped" aria-describedby="page-heading">
+  <thead>
+  <tr>
+    <th scope="col"><span>ID</span></th>
+    <th scope="col" ><span>First name</span></th>
+    <th scope="col"><span>Last name</span></th>
+    <th scope="col"><span>Birthday</span></th>
+    <th scope="col"><span>Email</span></th>
+  </tr>
+  </thead>
+  <tr *ngFor="let account of accounts">
+    <td>{{account.id}}</td>
+    <td>{{account.firstName}}</td>
+    <td>{{account.lastName}}</td>
+    <td>{{account.email}}</td>
+    <td>{{account.email}}</td>
+    <td class="text-right">
+      <div class="btn-group">
+        <button type="submit"
+                [routerLink]="['/benefit', account.id, 'edit']"
+                class="btn btn-primary btn-sm">
+          <fa-icon [icon]="'pencil-alt'"></fa-icon>
+          <span class="d-none d-md-inline">Edit</span>
+        </button>
+        <button type="submit"
+                (click)="delete(account)" class="btn btn-danger btn-sm">
+          <fa-icon [icon]="'times'"></fa-icon>
+          <span class="d-none d-md-inline">Delete</span>
+        </button>
+      </div>
+    </td>
+  </tr>
+</table>
