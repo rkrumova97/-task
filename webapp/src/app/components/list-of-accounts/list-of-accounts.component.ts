@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {Account} from "../../model/account.model";
+import {Component, OnInit} from '@angular/core';
+import {Account, IAccount} from "../../model/account.model";
 import {AccountService} from "../../service/account.service";
 
 @Component({
@@ -10,7 +10,8 @@ import {AccountService} from "../../service/account.service";
 export class ListOfAccountsComponent implements OnInit {
   accounts?: Account[];
 
-  constructor(public accountService: AccountService) { }
+  constructor(public accountService: AccountService) {
+  }
 
   ngOnInit(): void {
     this.accountService.find().subscribe(res => {
@@ -18,7 +19,9 @@ export class ListOfAccountsComponent implements OnInit {
     });
   }
 
-  delete(account: Account) {
-
+  delete(account: IAccount): void {
+    // @ts-ignore
+    this.accountService.delete(account.id).subscribe(console.log("cvcxvxcv"));
+    window.location.reload();
   }
 }

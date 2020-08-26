@@ -1,0 +1,90 @@
+<div class="container-fluid ">
+
+  <div class="row  justify-content-sm-center">
+    <div class="col-12 ">
+      <h1 class="headerTitle text-center">Create or Update</h1>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <form>
+
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label class="form-control-label" for="field_name">First Name</label>
+            <input type="text" class="form-control" name="firstName" id="field_name"
+                   placeholder="First name of the employee"
+                   required
+                   [(ngModel)]="account.firstName"
+                   #firstName=ngModel
+                   [ngClass]="{ 'is-invalid': firstName.invalid && (firstName.dirty || firstName.touched || submitted) }"
+            />
+            <div
+              *ngIf="firstName.invalid && (firstName.dirty || firstName.touched || submitted)"
+              class="invalid-feedback d-block">
+              <span>First Name is required field.</span>
+            </div>
+          </div>
+
+          <div class="form-group col-md-4">
+            <label class="form-control-label" for="field_last_name">Last Name</label>
+            <input type="text" class="form-control" name="lastName" id="field_last_name"
+                   placeholder="Last name of the employee"
+                   required
+                   [(ngModel)]="account.lastName"
+                   #lastName=ngModel
+                   [ngClass]="{ 'is-invalid': lastName.invalid && (lastName.dirty || lastName.touched || submitted) }"
+            />
+            <div
+              *ngIf="lastName.invalid && (lastName.dirty || lastName.touched || submitted)"
+              class="invalid-feedback d-block">
+              <span>Last Name is required field.</span>
+            </div>
+          </div>
+        </div>
+        <div class="row m-4"></div>
+        <div class="row m-4"></div>
+
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label class="form-control-label"
+                   for="field_birthDate">Birth Date</label>
+            <div class="d-flex">
+              <input id="field_birthDate" type="date" class="form-control" name="birthDate" required
+                     [(ngModel)]="account.birthday"
+                     #birthday="ngModel"
+                     [ngClass]="{ 'is-invalid': birthday.invalid && (birthday.dirty || birthday.touched || submitted) }"/>
+              <div *ngIf="birthday.invalid && (birthday.dirty || birthday.touched || submitted)"
+                   class="invalid-feedback">
+                <span>Birthday is required field.</span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-4">
+            <label class="form-control-label" for="field_email">Email</label>
+            <input type="text" class="form-control" name="lastName" id="field_email"
+                   placeholder="Email of the employee"
+                   required
+                   [(ngModel)]="account.email"
+                   #lastName=ngModel
+                   [ngClass]="{ 'is-invalid': lastName.invalid && (lastName.dirty || lastName.touched || submitted) }"
+            />
+            <div
+              *ngIf="lastName.invalid && (lastName.dirty || lastName.touched || submitted)"
+              class="invalid-feedback d-block">
+              <span>Email is required field.</span>
+            </div>
+          </div>
+          <div class="row m-2"></div>
+
+          <div class="row float-right">
+            <button type="button" class="btn btn-primary m-2" routerLink="/">
+              Back
+            </button>
+            <button type="button" class="btn btn-primary m-2" routerLink="/" (click)="process()">Next</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

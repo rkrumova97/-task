@@ -6,17 +6,21 @@ import {RouterModule} from "@angular/router";
 import {ListOfAccountsComponent} from "./components/list-of-accounts/list-of-accounts.component";
 import {routes} from "./app-routing.module";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {AccountCreateUpdateComponent} from "./components/account-create-update/account-create-update.component";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListOfAccountsComponent
+    ListOfAccountsComponent,
+    AccountCreateUpdateComponent
   ],
   imports: [
     BrowserModule,
     RouterModule,
     RouterModule.forRoot(routes),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

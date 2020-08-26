@@ -5,7 +5,6 @@ import com.testtask.testtask.model.Account;
 import com.testtask.testtask.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,20 +26,20 @@ public class AccountController {
     }
 
 
-    @GetMapping(value = "/get")
+    @GetMapping
     public ResponseEntity<List<Account>> getAllAccounts(Pageable pageable) {
         List<Account> accountList = accountService.findAllAccounts(pageable.getSort());
         return ResponseEntity.ok().body(accountList);
     }
 
-    @PostMapping(value = "/create")
+    @PostMapping
     public ResponseEntity<Account> create(@RequestBody AccountDto accountDto) throws URISyntaxException {
         Account account = accountService.saveAccount(accountDto);
         return ResponseEntity.created(new URI("/api/" + account.getId()))
                 .body(account);
     }
 
-    @PutMapping(value = "/update")
+    @PutMapping
     public ResponseEntity<Account> update(@RequestBody AccountDto accountDto) {
         Account account = accountService.updateAccount(accountDto);
         if (Objects.nonNull(account)) {
@@ -49,7 +48,7 @@ public class AccountController {
         } else return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
 
-    @DeleteMapping(value = "/delete/{uuid}")
+    @DeleteMapping(value = "/{uuid}")
     public ResponseEntity<?> delete(@PathVariable UUID uuid) {
         accountService.deleteAccount(uuid);
         return ResponseEntity.noContent().build();
